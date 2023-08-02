@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DoctorsOffice.Models.Patient
+
+<h4>Add a new Patient</h4>
+
+<p><strong>NOTE:</strong> You need to select at least one Doctor before you can add patient!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Doctors") to pick a Doctor.</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Doctor)
+  @Html.DropDownList("DoctorId")
+
+  <input type="submit" value="Add new patient" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all patients", "Index")</p>
+
